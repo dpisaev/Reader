@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card w-50">
+    <div class="card-header text-center">
+        Восстановление пароля
+    </div>
+    <div class="card-body">
+		<form action="" method="post">
+			{% csrf_token %}
+			{% if form.email.errors %}
+			<div class="alert alert-danger">
+				Неправильно введен E-mail.
+			</div>
+			{% else %}
+			<div class="alert alert-info">
+				Чтобы восстановить пароль, пожалуйста, введите E-mail, привязанный к Вашему аккаунту.
+			</div>
+			{% endif %}
+			<div class="form-group">
+				<label for="id_email">E-mail:</label>
+				<input class="form-control" type="email" name="email" maxlength="254" required="" id="id_email">
+			</div>
+			<input class="btn btn-primary w-100" type="submit" value="Восстановить мой пароль" />
+		</form>
+    </div>
+</div>
+{% endblock %}

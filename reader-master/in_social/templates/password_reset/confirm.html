@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card w-50">
+    <div class="card-header text-center">
+        Восстановление пароля
+    </div>
+    {% if validlink %}
+    <div class="card-body">
+    	<form action="" method="post">
+    		{% csrf_token %}
+			{% if form.errors %}
+			<ul class="alert alert-danger">
+			{% else %}
+			<ul class="alert alert-info">
+			{% endif %}
+				<li>Ваш пароль не должен состоять только из цифр.</li>
+				<li>Ваш пароль должен содержать не менее 8 символов.</li>
+				<li>Ваш пароль не должен быть часто используемым.</li>
+				<li>Ваш пароль не должен быть похож на другие Ваши данные.</li>
+				<li>Пароли должны совпадать.</li>
+			</ul>
+	    	<div class="form-group">
+	    		<label for="id_new_password1">Новый пароль:</label>
+	    		<input class="form-control" type="password" name="new_password1" minlength="8" required="" id="id_new_password1">
+	    	</div>
+	    	<div class="form-group">
+	    		<label for="id_new_password2">Новый пароль ещё раз:</label>
+	    		<input class="form-control" type="password" name="new_password2" minlength="8" required="" id="id_new_password2">
+	    	</div>
+	    	<input class="btn btn-primary" type="submit" value="Изменить мой пароль">
+	    </form>
+    </div>
+    {% else %}
+    <div class="card-body">
+    	Произошла ошибка при сбросе пароля.
+    	Попробуйте выполнить процедуру восстановления пароля вновь.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

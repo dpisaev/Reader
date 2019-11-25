@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card text-center" style="width: 25em">
+      <div class="card-header">
+        Возможности администратора
+      </div>
+  <div class="card-body">    
+    {% for item in opportunities %}
+    <a class="btn btn-primary w-75 mb-3" href="{{ item.url }}">{{ item.name }}</a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

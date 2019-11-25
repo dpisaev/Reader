@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron w-75">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p class="lead">Это главная страница сайта Reader.</p>
+    <hr class="my-4">
+    <p>Тут собрана дополнительная информация о нас.</p>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructionModal">Руководство</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#aboutModal">О проекте</button>
+</div>
+
+<div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="instructionModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="instructionModalLongTitle">Руководство по использованию</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>1) Пользователь</h5>
+                <p>
+                    На нашем сайте используется система пользовательского доступа. 
+                    Для получения доступа к функциям сайта Вам необходимо провести авторизацию.
+                    Войти в аккаунт можно с помощью выпадающего меню "Авторизация" в правом верхнем углу экрана.
+                </p>
+                <p>
+                    Если у Вас ещё нет аккаунта, проведите процедуру регистрации с помощью <a class="card-link" href="profile/reg/">этой ссылки </a> или нажав на кнопку "Регистрация" в нижней части выпадающего меню "Авторизация". Для регистрации необходимо ввести корректный адрес электронной почты. В будущем он может понадобиться Вам для восстановления пароля.
+                </p>
+
+                <p>Вы также в любой момент можете редактировать данные аккаунта, перейдя на соответствующую страницу профиля.</p>
+                <h5>2) Подключение дополнительных аккаунтов</h5>
+                <p>
+                    Для удобной работы со статьями мы рекомендуем Вам привязать аккаунты Telegram и ВКонтакте к Вашему профилю.
+                    Это позволит воспользоваться функциями наших ботов в данных социальных сетях.
+                    Чтобы привязать аккаунты к профилю, достаточно перейти в раздел "Настройки аккаунтов" и ввести корректные ID Ваших аккаунтов Telegram и VK.
+                </p>
+                <p>
+                    <div>Telegram бот: @super_reader_bot</div> 
+                    <div>ВК бот: <a class="card-link" href="https://vk.com/im?sel=-179475516">Reader</a></div>
+                </p>
+                <h5>3) Работа со статьями</h5>
+                <p>Все сохраненные статьи отображатся в специальном разделе "Статьи", доступ к которому можно получить в верхней части экрана.</p>
+                <p>
+                    <div>Добавить нужную Вам статью можно двумя способами.</div>
+                    <div>а) Вы можете воспользоваться возможностями наших ботов в Telegram и VK, предварительно привязав аккаунты из данных социальных сетей к Вашему профилю. Интуитивно понятное управление позволит Вам сделать это быстро и качественно.</div>
+                    <div>б) Вы можете добавить статью вручную в разделе "Статьи" с помощью кнопки "Добавить статью".</div>
+                </p>
+                <p>
+                    В разделе "Статьи" Вы также можете редактировать и удалять сохраненные статьи, если Вам это необходимо.
+                </p>
+                <h5>4) Каналы</h5>
+                <p>
+                    На нашем сайте предусмотрена работа каналов. Вы можете создать новый канал или войти в уже существующий канал. В каналы можно приглашать других пользователей, а также делиться своими статьями и лайкать чужие.
+                </p>
+                <h5>5) Персонализация</h5>
+                <p>
+                    В качестве бонуса на нашем сайте доступны темы. Вы можете установить любую из предложенных тем в разделе "Темы". Тема привязывается к аккаунту. Это гарантирует наличие одинаковой темы на всех устройствах.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="aboutModalLongTitle">Информация о проекте</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Главной целью проекта является облегчить работу со статьями в интернете. Он состоит из трёх частей: сайта, VK бота и Telegram бота.</p>
+                <p>Под руководством Новикова Ивана Андреевича <span class="text-muted">@johnnovikov</span> над проектом работали</p>
+                <ul>
+                    <li>Асташов Степан <span class="text-muted">@Nippon_Kazauwa</span></li>
+                    <li>Иванов Глеб <span class="text-muted">@Sargerasik</span></li>
+                    <li>Исаев Дмитрий <span class="text-muted">@res0lve</span></li>
+                    <li>Коршунова Анастасия <span class="text-muted">@asya_kors</span></li>
+                    <li>Майоров Кирилл <span class="text-muted">@Funmaster05</span></li>
+                    <li>Першин Александр <span class="text-muted">@Alex_Pershin</span></li>
+                    <li>Трифонов Федор <span class="text-muted">@Trifonov</span></li>
+                    <li>Шиленков Владимир <span class="text-muted">@pasteis</span></li>
+                    <li>Шупов Александр <span class="text-muted">@Ax0107</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

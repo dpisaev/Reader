@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card text-center w-100">
+    <div class="card-header">
+      Управление пользователями
+    </div>
+	<div class="card-body">
+		<form method="post" action="">
+			<div class="input-group mb-3">
+				{% csrf_token %}
+				{% for field in search_user.visible_fields %}
+					{{field}}
+				{% endfor %}
+				<div class="input-group-append">
+					<input class="btn btn-primary" type="submit" value="Поиск"/>
+				</div>					
+			</div>
+		</form>
+		{% if all_users %}
+			<div class="table-responsive" style="max-height: 50vh">
+				{% include 'components/users_table.html' %}
+			</div>
+		{% else %}
+			<div>Пользователи с таким никнеймом не найдены</div>
+		{% endif %}
+	</div>
+	<div class="card-footer">
+		<a class="card-link" href="/admin/">Другие возможности</a>
+	</div>
+</div>
+{% endblock %}

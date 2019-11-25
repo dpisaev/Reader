@@ -1,0 +1,49 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: {{theme.base_color}};">
+  <a class="navbar-brand" href="/">Reader</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/canals/' %} active {% endif %}" href="/canals">Каналы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/articles/' %} active {% endif %}" href="/articles">Статьи</a>
+      </li>
+      {% endif %}
+    </ul>
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav mr-right">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{user.username}}
+          <div class="avatar-image avatar-small-image ml-2 mr-2"></div>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="/profile/">Профиль</a>
+            <a class="dropdown-item" href="/profile/accounts">Настройки аккаунтов</a>
+            <a class="dropdown-item" href="/profile/themes">Темы</a>
+            {% if user.is_superuser %}
+            <a class="dropdown-item" href="/admin">Функции администратора</a>
+            {% endif %}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/profile/logout">Выйти</a>
+        </div>
+      </div>
+    </ul>
+    {% else %}
+    <ul class="navbar-nav mr-right">
+      <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Авторизация
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            {% include 'registration/loginalt.html' %}
+          </div>
+        </div>
+    </ul>
+    {% endif %}
+  </div>
+</nav>

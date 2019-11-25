@@ -1,0 +1,11 @@
+Django==2.2.1
+Pillow==6.0.0
+nltk
+langdetect
+pymorphy2
+bs4
+numpy
+requests
+vk_api
+telebot
+gensim

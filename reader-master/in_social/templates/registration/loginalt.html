@@ -1,0 +1,12 @@
+<form class="px-4 py-3" method="post" action="/profile/login/">
+  {% csrf_token %}
+  {% for field in login_form.visible_fields %}
+        <div class="form-group form-inline">{{ field }}</div>
+  {% endfor %}
+  <div class="d-flex align-items-center">
+  	<input class="btn btn-primary" type="submit" value="Войти"/>
+  	<a class="card-link text-center w-100" href="/reset-password">Забыли пароль?</a>
+  </div>
+</form>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item text-center" href="/profile/reg">Зарегистрироваться</a>

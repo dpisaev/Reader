@@ -1,0 +1,95 @@
+body {
+	background-color: #343a40;
+	color: #f8f9fa;
+}
+
+.form-control {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.form-control:focus {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+.input-group-text {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: #f8f9fa;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background-color: #343a40;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-header, .card-footer {
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.table {
+	color: #f8f9fa;
+}
+
+.table th, .table td, .table thead th {
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.jumbotron {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.modal-content {
+	background-color: #343a40;
+}
+
+.modal-header {
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.close {
+	color: rgba(0, 0, 0, 0.6);
+	text-shadow: none;
+}
+
+.close:hover {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.dropdown-menu {
+	background-color: #343a40;
+}
+
+.dropdown-item {
+	color: #f8f9fa;
+}
+
+.dropdown-item:hover {
+	color: #f8f9fa;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dropdown-divider {
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+hr {
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.list-group-item-action:hover, .list-group-item-action:focus {
+	color: #f8f9fa;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.list-group-item {
+	color: #f8f9fa;
+	background-color: #343a40;
+}
+
+.modal-footer {
+	border-color: rgba(0, 0, 0, 0.2)
+}

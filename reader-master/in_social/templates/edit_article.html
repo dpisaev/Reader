@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card w-50">
+	<div class="card-header d-flex align-items-center">
+		<a href="/articles" class="card-link" style="position: fixed">
+			<i style="font-size: 2rem" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+		</a>
+		<div class="w-100 text-center py-1">Редактирование статьи</div>
+	</div>
+	<form id="form" action="" method="post">
+		<div class="card-body">
+			{% csrf_token %}
+			{% for field in edit_article_form %}
+			<div class="form-group">
+				<label for="">{{field.label}}</label>
+				{{field}}
+			</div>
+			{% endfor %}
+			<div class="form-group mx-0 form-control row d-flex">
+        		<div onclick="add_predictor_word(1)" id="predictor_word1" class="col text-center pl-0" style="cursor: pointer; border-right: 1px solid #ced4da">-</div>
+        		<div onclick="add_predictor_word(2)" id="predictor_word2" class="col text-center" style="cursor: pointer; border-right: 1px solid #ced4da">-</div>
+        		<div onclick="add_predictor_word(3)" id="predictor_word3" class="col text-center pr-0" style="cursor: pointer;">-</div>
+            </div>
+			<div id="div-tags">
+			{% for tag in tags %}
+				<button id="tag{{ tag.id }}" type="button" class="btn btn-primary btn-sm mt-2 mr-1">
+					{{ tag.tag }} 
+					<i onclick="remove_tag({{tag.id}})" style="font-size: 0.9rem" class="fa fa-remove" aria-hidden="true"></i>
+				</button>
+			{% endfor %}
+			</div>
+		</div>
+		<div class="card-footer text-center">
+			<input type="submit" class="btn btn-primary w-25" value="Сохранить">
+		</div>
+	</form>
+</div>
+
+<nav class="navbar fixed-bottom">
+	<div class="navbar-brand" style="font-size: 1rem">Реализовано с помощью сервиса <a class="card-link" href="https://yandex.ru/dev/predictor/">«Яндекс.Предиктор»</a></div>
+</nav>
+
+{% load static %}
+<script src="{% static '/predictor.js' %}">
+</script>
+
+<script>
+	function remove_tag(id_tag){
+		form = document.getElementById("form");
+		input = document.createElement("input");
+		input.type = "hidden";
+		input.name = "deleted_tags";
+		input.value = id_tag;
+		form.appendChild(input);
+		div = document.getElementById("div-tags");
+		button_tag = document.getElementById("tag"+id_tag);
+		div.removeChild(button_tag);
+	}
+</script>
+{% endblock %}
+

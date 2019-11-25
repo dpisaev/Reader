@@ -1,0 +1,29 @@
+<form action="" method="post">
+	{% csrf_token %}
+	<div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text d-flex justify-content-center" style="width: 6em;" id="basic-addon1">{{search_post.search_title.label}}</span>
+        </div>
+        {{ search_post.search_title }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text d-flex justify-content-center" style="width: 6em;" id="basic-addon1">{{search_post.search_url.label}}</span>
+        </div>
+        {{ search_post.search_url }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text d-flex justify-content-center" style="width: 6em;" id="basic-addon1">{{search_post.search_tags.label}}</span>
+        </div>
+        {{ search_post.search_tags }}
+    </div>
+	<div class="d-flex align-items-center justify-content-center form-group">
+		<div class="mr-3">
+			{{search_post.type_of_search_tags.label}}
+		</div>
+		{{search_post.type_of_search_tags}}
+	</div>
+	<input type="submit" class="btn btn-primary w-100" value="Поиск">
+</form>
+<a href="" class="card-link mt-3 text-center">Сбросить поиск</a>

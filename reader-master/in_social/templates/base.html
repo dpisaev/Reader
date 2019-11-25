@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/bootstrap.css' %}" crossorigin="anonymous">
+    {% if bg_theme == 'dark' %}
+    <link rel="stylesheet" href="{% static '/another_dark.css' %}" crossorigin="anonymous">
+    {% endif %}
+    <link rel="stylesheet" href="{% static '/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static '/favicon.ico' %}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Reader</title>
+    <style>
+        /*Ссылка*/
+        .card-link {
+            color: {{theme.base_color}}
+        }
+
+        .card-link:hover {
+            color: {{theme.secondary_color}};
+        }
+
+        .form-control:focus {
+            border-color: {{theme.base_color}};
+        }
+
+        .custom-select:focus {
+            border-color: {{theme.base_color}};
+        }
+
+        strong {
+            color: {{ theme.base_color }};
+        }
+
+        /*Кнопка*/
+        .btn-primary {
+            background-color: {{theme.base_color}};
+            border-color: {{theme.base_color}};
+        }
+
+        .btn-primary:hover {
+            background-color: {{theme.secondary_color}};
+            border-color: {{theme.secondary_color}};
+        }
+
+        .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+        .show > .btn-primary.dropdown-toggle {
+          background-color: {{theme.secondary_color}};
+          border-color: {{theme.secondary_color}};
+        }
+
+        .dropdown-item.active, .dropdown-item:active {
+          background-color: {{theme.base_color}};
+        }
+
+        .custom-file-input:focus ~ .custom-file-label {
+            border-color: {{theme.base_color}};
+        }
+
+        .avatar-image {
+            background-image: url('{{avatar}}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+        
+        .avatar-small-image {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .avatar-big-image {
+            width: 10rem; 
+            height: 10rem;
+        }
+
+        .avatar-extra-image {
+            width: 15rem; 
+            height: 15rem;
+        }
+        
+        .avatar-big-image:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .like-link {
+            color: #acacac;
+        }
+
+        .like-link:hover {
+            color: grey;
+        }
+    </style>
+
+</head>
+<body class="vh-100" style="padding-top: 3.5rem">
+	<header>
+        {% block header %}
+        {% include 'header.html' %}
+        {% endblock %}
+    </header>
+
+    <main class="h-100">
+    	{% include 'messages.html' %}
+        <div class="container d-flex justify-content-center align-items-center h-100">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление ссылок</title>
+</head>
+<body>
+	<form class="enter-form" method="post">
+		{% csrf_token %}
+		<input name="theme" type="text" placeholder='Тема:' required="true" value="{{form.username.value}}">
+        <input name="link" type="text" placeholder='Ссылка:' required="true">
+        <input class="enter-button" type="submit" value="Сохранить"/>
+</body>
+</html>

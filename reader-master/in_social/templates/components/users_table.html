@@ -1,0 +1,64 @@
+<table class="table" style="margin-bottom: 0">
+<thead>
+	<tr>
+		<th scope="col">ID</th>
+		<th scope="col">Никнейм</th>
+		<th scope="col">Имя</th>
+		<th scope="col">Фамилия</th>
+		<th scope="col">Дата регистрации</th>
+		<th scope="col">Статус</th>
+		<th scope="col">Заблокирован</th>
+		<th scope="col"></th>
+		<th scope="col"></th>
+	</tr>
+</thead>
+<tbody>
+	{% for item in all_users %}
+	<tr>
+		<th scope="row">{{ item.id }}</th>
+		<td>{{ item.username }}</td>
+		<td>{{ item.first_name }}</td>
+		<td>{{ item.last_name }}</td>
+		<td>{{ item.date_joined|date:'d/m/Y H:i' }}</td>
+
+		{% if item.is_superuser %}
+		<td>Администратор</td>
+		{% else %}
+		<td>Пользователь</td>
+		{% endif %}
+		
+		<td>
+			{% if not item.is_active %}
+			Да
+			{% else %}
+			Нет
+			{% endif %}
+		</td>
+
+		<td>
+			{% if item != user %}
+				{% if not item.is_active %}
+				<a href="/admin/unblock-user/{{item.id}}" class="card-link"><i style="font-size: 1.5rem;" class="fa fa-unlock-alt" aria-hidden="true"></i></a>
+				{% else %}
+				<a href="/admin/block-user/{{item.id}}" class="card-link"><i style="font-size: 1.5rem;" class="fa fa-lock" aria-hidden="true"></i></a>
+				{% endif %}
+			{% endif %}
+		</td>
+			
+		<td>
+			{% if item != user %}
+				{% if item.is_superuser %}
+				<a href="/admin/make-user/{{item.id}}" class="card-link">
+					<i style="font-size: 1.5rem;" class="fa fa-angle-double-down" aria-hidden="true"></i>
+				</a>
+				{% else %}
+				<a href="/admin/make-admin/{{item.id}}" class="card-link">
+					<i style="font-size: 1.5rem;" class="fa fa-angle-double-up" aria-hidden="true"></i>
+				</a>
+				{% endif %}
+			{% endif %}
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>
+</table>

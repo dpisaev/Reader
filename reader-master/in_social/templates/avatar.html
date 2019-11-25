@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card text-center" style="width: 32em">
+    <div class="card-header">
+        Настройка аватара
+    </div>
+    <div class="card-body">
+        <div class="w-100 d-flex flex-column align-items-center" style="margin-bottom: 1.25rem">
+            <div href="/profile/avatar" class="avatar-image avatar-extra-image"></div>
+        </div>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            {% if default_avatar %}
+            Установить
+            {% else %}
+            Изменить
+            {% endif %}
+        </button>
+        {% if not default_avatar %}
+        <a href="/profile/avatar/remove" class="btn btn-primary">Удалить</a>
+        {% endif %}
+        <div class="collapse mt-3" id="collapseExample">
+            <div class="alert alert-info" role="alert">
+                Пожалуйста, используйте изображение с разрешением не более 1600x1600 и размером не более 2 МБ.
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="custom-file">
+                    {{avatar_form.image}}
+                    <label id="image_label" class="custom-file-label" for="id_image" data-browse="Обзор">Выберите файл</label>
+                </div>
+                <input type="submit" class="btn btn-primary w-100 mt-2"  value="Сохранить">
+            </form>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link" href="/profile/">Изменить основные данные</a>
+    </div>
+</div>
+<script>
+    files = document.getElementById("id_image").files;
+    if (files[0]) {
+        document.getElementById("image_label").innerHTML = files[0].name;
+    }
+    document.getElementById("id_image").onchange = function(e) {
+        files = this.files;
+        document.getElementById("image_label").innerHTML = files[0].name;
+    }
+</script>
+{% endblock %}
